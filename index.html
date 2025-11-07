@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Investimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container-principal">
+
+        <aside class="painel-calculadora">
+            
+            <header>
+                <h2>Simulador de Investimentos</h2>
+            </header>
+
+            <form id="calculadora-form">
+                
+                <div class="form-group">
+                    <label for="simulacao-nome">Nome da Simulação</label>
+                    <input type="text" id="simulacao-nome" placeholder="Ex: Aposentadoria">
+                </div>
+                
+                <div class="form-group">
+                    <label for="investimento-inicial">Investimento inicial</label>
+                    <div class="input-com-prefixo">
+                        <span>R$</span>
+                        <input type="number" id="investimento-inicial" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="aportes-adicionais">Aportes adicionais</label>
+                    <div class="input-com-prefixo">
+                        <span>R$</span>
+                        <input type="number" id="aportes-adicionais" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prazo">Prazo</label>
+                    <div class="input-grupo-dividido">
+                        <input type="number" id="prazo" value="0" class="input-maior">
+                        <select id="prazo-periodo" class="input-menor">
+                            <option value="mensal" selected>Mensal</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rentabilidade">Rentabilidade</label>
+                    <div class="input-grupo-dividido">
+                        <div class="input-com-prefixo input-maior">
+                            <span>%</span>
+                            <input type="number" id="rentabilidade" value="0">
+                        </div>
+                        <select id="rentabilidade-periodo" class="input-menor">
+                            <option value="mensal" selected>Mensal</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="impostos">Impostos sobre lucro</label>
+                    <div class="input-com-prefixo">
+                        <span>%</span>
+                        <input type="number" id="impostos" value="0">
+                    </div>
+                </div>
+
+                <div class="form-botoes">
+                    <button type="button" class="btn-calcular" id="btn-salvar" onclick="salvarSimulacao()">Salvar Simulação</button>
+                    <button type="button" class="btn-limpar" onclick="limparFormulario(true)">Limpar</button>
+                </div>
+
+            </form>
+        </aside>
+
+        <main class="painel-resultados">
+            
+            <section class="resultado-container">
+                <h3>Resultado da Simulação</h3>
+                <div id="resultado-texto">
+                    <p>Preencha os dados ao lado e clique em "Salvar Simulação" para ver os resultados.</p>
+                </div>
+            </section>
+            
+            <hr class="divisor">
+
+            <section class="crud-container">
+                <h3>Simulações Salvas</h3>
+                <div id="lista-simulacoes" role="list">
+                    <p>Nenhuma simulação salva ainda.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
